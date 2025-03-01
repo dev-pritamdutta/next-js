@@ -22,3 +22,8 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.test{
+  color: #ff0000;
+  background-color: rgb(39, 238, 172);
+}
