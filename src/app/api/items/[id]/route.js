@@ -9,12 +9,12 @@ export async function GET(req, {params}) {
   return Response.json(singelData);
 }
 
-
+//delete the singel data from database
 export async function DELETE(req, {params}) {
   const p = await params;
-  console.log(p);
+  const response = await dbConnect("practice_data").deleteOne({ _id: new ObjectId(p.id)});
 
-  return Response.json({ params: p });
+  return Response.json(response);
 }
 
 //update the singel data from database
