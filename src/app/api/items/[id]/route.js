@@ -1,8 +1,11 @@
-export async function GET(req, params) {
-  const p = await params;
-  console.log(p);
+import dbConnect from "@/lib/dbConnect";
+import { ObjectId } from "mongodb";
 
-  return Response.json({ params: p });
+export async function GET(req, {params}) {
+  const p = await params;
+  const singelData = await dbConnect("practice_data").findOne({ _id: new ObjectId(p.id)});
+
+  return Response.json(singelData);
 }
 
 
