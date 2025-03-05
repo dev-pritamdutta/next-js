@@ -1,13 +1,31 @@
 "use client"
 
 const ProductAddForm = () => {
-    const handleSubmit = e =>{
+    const handleSubmit = async(e)  =>{
         e.preventDefault();
-        const productName = e.target.productName.value;
-        const productPrice = e.target.productPrice.value;
-        const productDescription = e.target.productDescription.value;
+        const form = e.target;
+        const productName = form.productName.value;
+        const productPrice = form.productPrice.value;
+        const productDescription = form.productDescription.value;
+        const payload = {name: productName, price: productPrice, description: productDescription};
 
-        console.log(productName, productPrice, productDescription);
+        const res  = await fetch("http://localhost:3000/api/items", {
+            method: "POST",
+            body: JSON.stringify(payload),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        const result = await res.json();
+        console.log(result);
+        if (res.ok) {
+            alert("Product added successfully!");
+        } else {
+            alert("Failed to add product.");
+        }
+        form.reset();
+
+        // console.log(productName, productPrice, productDescription);
 
     }
 return (
