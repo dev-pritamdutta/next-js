@@ -15,6 +15,20 @@ const Navbar = () => {
           </li>
           <ul className="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0 md:space-x-6">
             <li>
+              <Link href="/products">
+                <span className="text-lg font-semibold text-white hover:text-gray-200 transition duration-300">
+                  Products
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/products/add">
+                <span className="text-lg font-semibold text-white hover:text-gray-200 transition duration-300">
+                  Add Product
+                </span>
+              </Link>
+            </li>
+            <li>
               <Link href="/service">
                 <span className="text-lg font-semibold text-white hover:text-gray-200 transition duration-300">
                   Service

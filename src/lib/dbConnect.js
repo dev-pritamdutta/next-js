@@ -16,3 +16,5 @@ function dbConnect(collectionName) {
 }
 
 export default dbConnect;
+
+//explaination
