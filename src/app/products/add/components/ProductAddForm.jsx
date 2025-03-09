@@ -1,6 +1,9 @@
 "use client"
 
+import { useRouter } from "next/navigation";
+
 const ProductAddForm = () => {
+    const router = useRouter();
     const handleSubmit = async(e)  =>{
         e.preventDefault();
         const form = e.target;
@@ -18,11 +21,12 @@ const ProductAddForm = () => {
         });
         const result = await res.json();
         console.log(result);
-        if (res.ok) {
-            alert("Product added successfully!");
-        } else {
-            alert("Failed to add product.");
-        }
+        router.push("/products");
+        // if (res.ok) {
+        //     alert("Product added successfully!");
+        // } else {
+        //     alert("Failed to add product.");
+        // }
         form.reset();
 
         // console.log(productName, productPrice, productDescription);
